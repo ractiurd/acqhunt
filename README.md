@@ -1,92 +1,111 @@
-# Stand With Palestine
+# 🇵🇸 Stand With Palestine
 
 ![Palestinian Flag](https://img.freepik.com/premium-photo/child-holding-palestinian-flag-front-destroyed-building_988987-10735.jpg)
 
-The current situation in Palestine is heartbreaking, with Israel committing acts of genocide and many more atrocities against innocent Palestinians. Thousands of lives have been lost, and entire communities are being destroyed. The massacre must be stopped, and we, as global citizens, must not stay silent. We need to raise our voices, spread awareness, and stand with Palestine in this dire moment.
+The situation in Palestine remains critical, with countless innocent lives affected by ongoing violence and oppression. As global citizens, it's our responsibility to speak up, spread awareness, and support justice and human rights.
 
-Let us all make dua (pray) for the people of Palestine and do our part in calling for an end to these injustices. This is not just a political issue—it is a humanitarian crisis that requires our collective attention and action.
-
-Please take a moment to reflect on this cause and spread awareness. Stand with Palestine!
-
-
+Let us pray (make dua) for the people of Palestine and commit ourselves to advocating for peace and dignity for all.
 
 ---
 
-# AcqHunt
+# AcqHunt - Domain Acquisition Discovery Tool
 
-AcqHunt is a versatile reconnaissance tool designed for discovering acquisitions and related information associated with domains, IP addresses, organizations, and ASN numbers. This command-line utility provides a comprehensive suite of features tailored for cybersecurity professionals, researchers, and enthusiasts alike.
+**AcqHunt** is a powerful command-line reconnaissance tool for discovering domains and related assets tied to organizations, IP ranges, ASN numbers, and more. Built for cybersecurity professionals, researchers, and digital investigators, AcqHunt aggregates intelligence from multiple sources to provide deep acquisition visibility.
 
-## Features
+## 🔍 Key Features
 
-- **ASN Lookup (`-a`)**: Fetches unique domains associated with the specified Autonomous System Number (ASN).
-  
-- **Domain Search (`-d`)**: Investigates acquisitions related to the specified domain name.
-  
-- **IP Range Analysis (`-ip`)**: Identifies unique domains linked to the specified IP range in CIDR notation.
-  
-- **Organization Search (`-org`)**: Retrieves acquisitions involving the specified organization.
-  
-- **Output Options (`-o`)**: Allows exporting results to a specified file for further analysis and reporting.
-  
-### Additional Capabilities
+- **Domain Lookup**: `-d` – Search by domain name.
+- **Organization Lookup**: `-org` – Discover domains associated with a specific organization.
+- **IP Range Scan**: `-ip` – Query CIDR-based IP ranges for domain associations.
+- **ASN Scan**: `-a` – Retrieve domains tied to a specific Autonomous System Number.
 
-- **Crt.sh Integration (`-c`, `-oc`)**: Fetches data from crt.sh, providing comprehensive insights into domain certificates and acquisitions related to domains or organizations.
-  
-- **Website Informer (`-i`)**: Gathers data from website.informer.com to supplement acquisition research.
-  
-- **Shodan Integration (`-s`)**: Retrieves relevant information from Shodan, offering insights into connected devices and infrastructure.
-  
-- **ViewDNS Info (`-v`)**: Provides additional context from viewdns.info, enhancing the understanding of domain and IP address relationships.
-  
-- **Reverse WHOIS (`-w`)**: Utilizes reverse WHOIS lookup to identify domains associated with specific registrants, aiding in comprehensive acquisition analysis.
+### 🧠 Data Source Integrations
 
-## Usage
+- `-c` – Pull certificate data from **crt.sh** (by domain).
+- `-oc` – Pull organization-wide certificate data from **crt.sh**.
+- `-i` – Query **website.informer.com** for related domain info.
+- `-w` – Run **reverse WHOIS** lookup for domain ownership links.
+- `-b` – Query the **BigDomainData API** for additional acquisition data.
 
-AcqHunt empowers users to conduct thorough reconnaissance on acquisitions across various digital assets, leveraging multiple sources to compile actionable intelligence. Whether assessing acquisitions from specific domains, IP addresses, organizations, or ASN numbers, AcqHunt offers a seamless and powerful solution for cybersecurity professionals and researchers seeking to enhance their investigative capabilities.
+### 💾 Output Options
 
-## Prerequisites
+- `-o` – Save output to a file of your choice for future analysis.
 
-Before installing AcqHunt, make sure you have the following dependencies installed:
+## ⚙️ Usage Examples
 
-1. **Whois** – Required for domain lookup. Install it using:
-   ```bash
-   sudo apt install whois -y
-   ```
-  1. **Reverse WHOIS API Key** – AcqHunt requires a Reverse WHOIS API key for certain features. Make sure you have a valid API key before using the tool.
-   
-## Installation
+```bash
+acqhunt -d example.com -c -w -b        # Full domain investigation
+acqhunt -org "Google LLC" -oc          # Organization certificate discovery
+acqhunt -ip 192.168.1.0/24             # Domain enumeration by IP range
+acqhunt -a AS15169                     # Domain discovery via ASN
+```
+## 📦 Installation
 
-To install AcqHunt, use the following `go install` command:
+### Option 1: Install via Go
+
+To install AcqHunt using Go, run the following command:
 
 ```bash
 go install github.com/ractiurd/acqhunt@latest
 ```
-This will download and install the latest version of AcqHunt on your system.
+This will install the latest version and place the binary in your $GOPATH/bin directory. Make sure that directory is in your system’s PATH.
 
-Once installed, you can run the tool using:
-```bash
-acqhunt -h
-```
-Manual Installation
-If you prefer to install manually, follow these steps:
+### Option 2: Manual Installation
+
+If you prefer to install AcqHunt manually, follow these steps:
+
 ```bash
 # Clone the repository
 git clone https://github.com/ractiurd/acqhunt.git
 
-# Navigate to the project directory
+# Navigate into the project directory
 cd acqhunt
 
 # Build the binary
-go build .
+go build
 
-# Move the binary to /usr/bin for system-wide access
+# Move the binary to a location in your system PATH
 sudo mv acqhunt /usr/bin/
 ```
+After installation, verify it's working:
+```bash
+acqhunt -h
+```
 
-## Licensing
 
-AcqHunt offers a trial period of 15 uses for users to evaluate its capabilities. To continue using the tool beyond the trial period, you will need to obtain a license key from the author.
+## 🧰 Prerequisites
 
-For licensing inquiries and more information, please contact [ractiurd] via visiting [x.com/ractiurd](https://x.com/ractiurd) 
-or [facebook.com/ractiurd](https://facebook.com/ractiurd) 
-and message him directly.
+Before using AcqHunt, ensure the following tools and API keys are set up:
+
+- **Whois Utility**
+  - Required for domain and registrant lookups.
+  - Install it with:
+    ```bash
+    sudo apt install whois -y
+    ```
+
+- **Reverse WHOIS API Key**
+  - Needed for using the `-w` flag (Reverse WHOIS lookup).
+  - You can get a key from: [WhoisXML API - Reverse WHOIS](https://reverse-whois.whoisxmlapi.com/)
+
+- **BigDomainData API Key**
+  - Required for the `-b` flag to query domain acquisition data.
+  - Grab your API key from: [BigDomainData](https://www.bigdomaindata.com/)
+ 
+## 🔐 Licensing
+
+AcqHunt is completely **free to use** with no trial limitations.
+
+You are welcome to use, share, and contribute to the project under the terms of its open usage model.
+
+For questions, contributions, or support, feel free to contact the author:
+
+- Twitter/X: https://x.com/ractiurd
+- Facebook: https://facebook.com/ractiurd
+## ⚠️ Disclaimer
+
+AcqHunt is intended for ethical and educational use only. 
+
+Please ensure you have proper authorization before scanning, querying, or collecting data on any domains, organizations, IP addresses, or ASNs.
+
+The author is not responsible for any misuse of this tool.
